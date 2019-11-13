@@ -50,7 +50,7 @@ function processFirstItem(stringList, callback) {
 */
 function processLength(list, callback) {
   return callback(list.length);
-  
+
 }
 
 /**
@@ -68,7 +68,7 @@ function processLength(list, callback) {
  * should return 'barbar'.
 */
 function processLastItem(stringList, callback) {
-  return callback (stringList.pop());
+  return callback(stringList.pop());
 }
 
 /**
@@ -88,10 +88,10 @@ function processLastItem(stringList, callback) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum (numberList, callback) {
+function processSum(numberList, callback) {
   let sum = numberList.reduce((a, b) => a + b, 0);
-  return callback (sum);
-  
+  return callback(sum);
+
 }
 
 /**
@@ -137,7 +137,7 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
 */
 function processContains(item, list, callback) {
-  return callback(list.includes);
+  return callback(list.includes(item));
 }
 
 /**
@@ -181,8 +181,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  let newArray = [];
+  runners.forEach(function (runnerelement) {
+    newArray.push(`${runnerelement.last_name}, ${runnerelement.first_name}`);
+  });
+  return newArray;
 }
 
 /**
@@ -197,8 +201,9 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+  let newArray = runners.map(element => element.first_name.toUpperCase());
+  return newArray;
 }
 
 /**
@@ -214,9 +219,13 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  let newArray = runners.filter(function(runnerelement){
+    runnerelement.shirt_size === tShirtSize;
+    
+  } return newArray;
 }
+  
 
 /**
  * ### Challenge `tallyUpDonations`
