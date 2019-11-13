@@ -294,11 +294,16 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(limit) {
-  let count = 0;
-  function counter(){
-  if (count >= max) = 0;
-}
+function counterMakerWithLimit(maxcount) {
+  let count = -1;
+  function counter() {
+    if (count >= maxcount) {
+      return (count = 0);
+    } else {
+      return (count += 1);
+    }
+  }
+  return counter;
 }
 
 /////////////// END OF CHALLENGE ///////////////
